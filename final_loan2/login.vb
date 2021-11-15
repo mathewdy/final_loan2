@@ -73,10 +73,12 @@ Public Class login
                 Dim admin_main As New admin_dashboard
                 admin_dashboard.admin_main = text_username.Text
 
-
+                Dim sample As New sample
+                sample.admin_main = text_username.Text
 
                 admin_dashboard.Show()
                 Me.Hide()
+
             Else
                 MessageBox.Show("Wrong username or password", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 text_password.Text = ""

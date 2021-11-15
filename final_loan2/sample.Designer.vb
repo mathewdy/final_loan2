@@ -56,13 +56,15 @@ Partial Class sample
         Me.Button8 = New System.Windows.Forms.Button()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.label_user = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.PictureBox1.Location = New System.Drawing.Point(891, 82)
+        Me.PictureBox1.Location = New System.Drawing.Point(52, 547)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(327, 273)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -72,7 +74,7 @@ Partial Class sample
         'account_number
         '
         Me.account_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.account_number.Location = New System.Drawing.Point(132, 67)
+        Me.account_number.Location = New System.Drawing.Point(52, 160)
         Me.account_number.Multiline = True
         Me.account_number.Name = "account_number"
         Me.account_number.Size = New System.Drawing.Size(254, 27)
@@ -81,7 +83,7 @@ Partial Class sample
         'full_name
         '
         Me.full_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.full_name.Location = New System.Drawing.Point(132, 127)
+        Me.full_name.Location = New System.Drawing.Point(52, 220)
         Me.full_name.Multiline = True
         Me.full_name.Name = "full_name"
         Me.full_name.Size = New System.Drawing.Size(254, 28)
@@ -89,7 +91,7 @@ Partial Class sample
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(132, 375)
+        Me.Button1.Location = New System.Drawing.Point(52, 468)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 39)
         Me.Button1.TabIndex = 4
@@ -98,7 +100,7 @@ Partial Class sample
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(765, 164)
+        Me.Button2.Location = New System.Drawing.Point(385, 661)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(103, 39)
         Me.Button2.TabIndex = 5
@@ -107,7 +109,7 @@ Partial Class sample
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(12, 67)
+        Me.Button3.Location = New System.Drawing.Point(48, 69)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(89, 29)
         Me.Button3.TabIndex = 6
@@ -117,7 +119,7 @@ Partial Class sample
         'address
         '
         Me.address.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.address.Location = New System.Drawing.Point(132, 195)
+        Me.address.Location = New System.Drawing.Point(52, 288)
         Me.address.Multiline = True
         Me.address.Name = "address"
         Me.address.Size = New System.Drawing.Size(254, 28)
@@ -126,7 +128,7 @@ Partial Class sample
         'contact_number
         '
         Me.contact_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.contact_number.Location = New System.Drawing.Point(132, 321)
+        Me.contact_number.Location = New System.Drawing.Point(52, 414)
         Me.contact_number.Multiline = True
         Me.contact_number.Name = "contact_number"
         Me.contact_number.Size = New System.Drawing.Size(254, 28)
@@ -135,7 +137,7 @@ Partial Class sample
         'amount_loan
         '
         Me.amount_loan.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.amount_loan.Location = New System.Drawing.Point(434, 82)
+        Me.amount_loan.Location = New System.Drawing.Point(354, 175)
         Me.amount_loan.Multiline = True
         Me.amount_loan.Name = "amount_loan"
         Me.amount_loan.Size = New System.Drawing.Size(254, 28)
@@ -144,7 +146,7 @@ Partial Class sample
         'number_of_years
         '
         Me.number_of_years.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.number_of_years.Location = New System.Drawing.Point(434, 141)
+        Me.number_of_years.Location = New System.Drawing.Point(354, 234)
         Me.number_of_years.Multiline = True
         Me.number_of_years.Name = "number_of_years"
         Me.number_of_years.Size = New System.Drawing.Size(254, 28)
@@ -153,7 +155,7 @@ Partial Class sample
         'interest_rate
         '
         Me.interest_rate.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.interest_rate.Location = New System.Drawing.Point(434, 205)
+        Me.interest_rate.Location = New System.Drawing.Point(354, 298)
         Me.interest_rate.Multiline = True
         Me.interest_rate.Name = "interest_rate"
         Me.interest_rate.Size = New System.Drawing.Size(254, 28)
@@ -162,7 +164,7 @@ Partial Class sample
         'monthly_payment
         '
         Me.monthly_payment.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.monthly_payment.Location = New System.Drawing.Point(434, 268)
+        Me.monthly_payment.Location = New System.Drawing.Point(354, 361)
         Me.monthly_payment.Multiline = True
         Me.monthly_payment.Name = "monthly_payment"
         Me.monthly_payment.ReadOnly = True
@@ -172,7 +174,7 @@ Partial Class sample
         'email_address
         '
         Me.email_address.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.email_address.Location = New System.Drawing.Point(132, 258)
+        Me.email_address.Location = New System.Drawing.Point(52, 351)
         Me.email_address.Multiline = True
         Me.email_address.Name = "email_address"
         Me.email_address.Size = New System.Drawing.Size(254, 28)
@@ -190,7 +192,7 @@ Partial Class sample
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(128, 39)
+        Me.Label1.Location = New System.Drawing.Point(48, 132)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(134, 20)
         Me.Label1.TabIndex = 16
@@ -200,7 +202,7 @@ Partial Class sample
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(128, 104)
+        Me.Label2.Location = New System.Drawing.Point(48, 197)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(85, 20)
         Me.Label2.TabIndex = 17
@@ -210,7 +212,7 @@ Partial Class sample
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(128, 172)
+        Me.Label3.Location = New System.Drawing.Point(48, 265)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(71, 20)
         Me.Label3.TabIndex = 18
@@ -220,7 +222,7 @@ Partial Class sample
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(128, 235)
+        Me.Label4.Location = New System.Drawing.Point(48, 328)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(118, 20)
         Me.Label4.TabIndex = 19
@@ -230,7 +232,7 @@ Partial Class sample
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(128, 298)
+        Me.Label5.Location = New System.Drawing.Point(48, 391)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(131, 20)
         Me.Label5.TabIndex = 20
@@ -240,7 +242,7 @@ Partial Class sample
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(430, 53)
+        Me.Label6.Location = New System.Drawing.Point(350, 146)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(108, 20)
         Me.Label6.TabIndex = 21
@@ -250,7 +252,7 @@ Partial Class sample
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(430, 113)
+        Me.Label7.Location = New System.Drawing.Point(350, 206)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(135, 20)
         Me.Label7.TabIndex = 22
@@ -260,7 +262,7 @@ Partial Class sample
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(430, 172)
+        Me.Label8.Location = New System.Drawing.Point(350, 265)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(105, 20)
         Me.Label8.TabIndex = 23
@@ -270,7 +272,7 @@ Partial Class sample
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(430, 236)
+        Me.Label9.Location = New System.Drawing.Point(350, 329)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(137, 20)
         Me.Label9.TabIndex = 24
@@ -278,7 +280,7 @@ Partial Class sample
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(258, 375)
+        Me.Button4.Location = New System.Drawing.Point(178, 468)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(90, 39)
         Me.Button4.TabIndex = 26
@@ -287,7 +289,7 @@ Partial Class sample
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(382, 375)
+        Me.Button5.Location = New System.Drawing.Point(302, 468)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(90, 39)
         Me.Button5.TabIndex = 27
@@ -297,7 +299,7 @@ Partial Class sample
         'rtb_receipt
         '
         Me.rtb_receipt.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rtb_receipt.Location = New System.Drawing.Point(71, 456)
+        Me.rtb_receipt.Location = New System.Drawing.Point(689, 141)
         Me.rtb_receipt.Name = "rtb_receipt"
         Me.rtb_receipt.Size = New System.Drawing.Size(543, 354)
         Me.rtb_receipt.TabIndex = 28
@@ -305,7 +307,7 @@ Partial Class sample
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(662, 469)
+        Me.Button6.Location = New System.Drawing.Point(1253, 255)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(114, 39)
         Me.Button6.TabIndex = 29
@@ -314,7 +316,7 @@ Partial Class sample
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(662, 535)
+        Me.Button7.Location = New System.Drawing.Point(1253, 321)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(114, 39)
         Me.Button7.TabIndex = 30
@@ -325,7 +327,7 @@ Partial Class sample
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(430, 299)
+        Me.Label10.Location = New System.Drawing.Point(350, 392)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(116, 20)
         Me.Label10.TabIndex = 32
@@ -334,7 +336,7 @@ Partial Class sample
         'total_payment
         '
         Me.total_payment.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.total_payment.Location = New System.Drawing.Point(434, 321)
+        Me.total_payment.Location = New System.Drawing.Point(354, 414)
         Me.total_payment.Multiline = True
         Me.total_payment.Name = "total_payment"
         Me.total_payment.ReadOnly = True
@@ -343,7 +345,7 @@ Partial Class sample
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(662, 608)
+        Me.Button8.Location = New System.Drawing.Point(410, 468)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(114, 39)
         Me.Button8.TabIndex = 33
@@ -364,12 +366,33 @@ Partial Class sample
         'PrintDocument1
         '
         '
+        'label_user
+        '
+        Me.label_user.AutoSize = True
+        Me.label_user.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label_user.Location = New System.Drawing.Point(814, 14)
+        Me.label_user.Name = "label_user"
+        Me.label_user.Size = New System.Drawing.Size(45, 20)
+        Me.label_user.TabIndex = 34
+        Me.label_user.Text = "User"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(173, 73)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(254, 27)
+        Me.TextBox1.TabIndex = 35
+        '
         'sample
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SeaGreen
         Me.ClientSize = New System.Drawing.Size(1924, 1055)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.label_user)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.total_payment)
@@ -442,4 +465,6 @@ Partial Class sample
     Friend WithEvents Button8 As Button
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents label_user As Label
+    Friend WithEvents TextBox1 As TextBox
 End Class

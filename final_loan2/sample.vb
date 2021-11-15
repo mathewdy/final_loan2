@@ -57,44 +57,51 @@ Public Class sample
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Try
-            query = "UPDATE clients SET account_number = @account_number, full_name=@full_name,address=@address,email_address=@email_address,
+        If account_number.Text = "" Or full_name.Text = "" Or address.Text = "" Or email_address.Text = "" Or contact_number.Text = "" Or amount_loan.Text = "" Or number_of_years.Text = "" Or interest_rate.Text = "" Or monthly_payment.Text = "" Or total_payment.Text = "" Then
+            MessageBox.Show("All input fields are required", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        Else
+            Try
+                query = "UPDATE clients SET account_number = @account_number, full_name=@full_name,address=@address,email_address=@email_address,
             contact_number=@contact_number,amount_loan=@amount_loan,number_of_years=@number_of_years,interest_rate=@interest_rate,monthly_payment=@monthly_payment,total_payment=@total_payment,
             image=@image, date_time_created=@date_time_created WHERE account_number=@account_number"
-            conn1.ConnectionString = my_connection
-            conn1.Open()
-            command.CommandText = query
+                conn1.ConnectionString = my_connection
+                conn1.Open()
+                command.CommandText = query
 
-            command.Parameters.AddWithValue("@account_number", account_number.Text)
-            command.Parameters.AddWithValue("@full_name", full_name.Text)
-            command.Parameters.AddWithValue("@address", address.Text)
-            command.Parameters.AddWithValue("@email_address", email_address.Text)
-            command.Parameters.AddWithValue("@contact_number", contact_number.Text)
-            command.Parameters.AddWithValue("@amount_loan", amount_loan.Text)
-            command.Parameters.AddWithValue("@number_of_years", number_of_years.Text)
-            command.Parameters.AddWithValue("@interest_rate", interest_rate.Text)
-            command.Parameters.AddWithValue("@monthly_payment", monthly_payment.Text)
-            command.Parameters.AddWithValue("@total_payment", total_payment.Text)
-            command.Parameters.AddWithValue("@image", arr_image)
-            command.Parameters.AddWithValue("@date_time_created", DateTimePicker1.Value)
+                command.Parameters.AddWithValue("@account_number", account_number.Text)
+                command.Parameters.AddWithValue("@full_name", full_name.Text)
+                command.Parameters.AddWithValue("@address", address.Text)
+                command.Parameters.AddWithValue("@email_address", email_address.Text)
+                command.Parameters.AddWithValue("@contact_number", contact_number.Text)
+                command.Parameters.AddWithValue("@amount_loan", amount_loan.Text)
+                command.Parameters.AddWithValue("@number_of_years", number_of_years.Text)
+                command.Parameters.AddWithValue("@interest_rate", interest_rate.Text)
+                command.Parameters.AddWithValue("@monthly_payment", monthly_payment.Text)
+                command.Parameters.AddWithValue("@total_payment", total_payment.Text)
+                command.Parameters.AddWithValue("@image", arr_image)
+                command.Parameters.AddWithValue("@date_time_created", DateTimePicker1.Value)
 
-            command.ExecuteNonQuery()
+                command.ExecuteNonQuery()
 
-            MessageBox.Show("Data updated")
+                MessageBox.Show("Data updated", "info", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            command.Parameters.Clear()
-            conn1.Close()
+                command.Parameters.Clear()
+                conn1.Close()
 
-            For Each Control As Control In Me.Controls
-                If TypeOf Control Is TextBox Then
-                    Control.Text = String.Empty
-                End If
-            Next
-            PictureBox1.Image = Nothing
-            account_number.Text = ""
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-        End Try
+                For Each Control As Control In Me.Controls
+                    If TypeOf Control Is TextBox Then
+                        Control.Text = String.Empty
+                    End If
+                Next
+                PictureBox1.Image = Nothing
+                account_number.Text = ""
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+            End Try
+
+        End If
+
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -106,7 +113,7 @@ Public Class sample
 
             command.ExecuteNonQuery()
 
-            MessageBox.Show("Data Deleted")
+            MessageBox.Show("Data Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
             command.Parameters.Clear()
             conn1.Close()
@@ -145,7 +152,7 @@ Public Class sample
             rtb_receipt.AppendText("----------------Thank You---------------" + vbNewLine)
             rtb_receipt.AppendText("---------------UM Students---------------" + vbNewLine)
             rtb_receipt.AppendText("Date & Time: " + DateTimePicker1.Value + vbNewLine)
-            rtb_receipt.AppendText("Admin: " + "Mathew Dy" + vbNewLine)
+            rtb_receipt.AppendText("Admin: " + label_user.Text + vbNewLine)
 
 
         Catch ex As Exception
@@ -164,7 +171,7 @@ Public Class sample
     End Sub
 
     Private Sub sample_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        label_user.Text = admin_main
     End Sub
 
     Private Sub sample_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -295,7 +302,7 @@ Public Class sample
             total_payment.Clear()
         End If
 
-        query = "SELECT * FROM clients WHERE account_number=" & Val(account_number.Text)
+        query = "SELECT * FROM clients WHERE account_number='" & TextBox1.Text & "' Or full_name = '" & TextBox1.Text & "' "
         conn1.ConnectionString = my_connection
         conn1.Open()
 
@@ -308,6 +315,7 @@ Public Class sample
         Try
             da.SelectCommand = command
             da.Fill(public_table)
+            account_number.Text = public_table.Rows(0).Item(1)
             full_name.Text = public_table.Rows(0).Item(2)
             address.Text = public_table.Rows(0).Item(3)
             email_address.Text = public_table.Rows(0).Item(4)
@@ -329,24 +337,30 @@ Public Class sample
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        monthly_payment.Text = Format(Val(monthly_payment.Text), "0.00")
-        total_payment.Text = Format(Val(total_payment.Text), "0.00")
+        If amount_loan.Text = "" Or number_of_years.Text = "" Or interest_rate.Text = "" Then
+            MessageBox.Show("All fields are required")
+        Else
+            monthly_payment.Text = Format(Val(monthly_payment.Text), "0.00")
+            total_payment.Text = Format(Val(total_payment.Text), "0.00")
 
-        interest = Convert.ToDouble(interest_rate.Text)
-        month_interest = interest / 1200
-        num_year = Convert.ToInt32(number_of_years.Text)
-        loan_amount = Convert.ToDouble(amount_loan.Text)
+            interest = Convert.ToDouble(interest_rate.Text)
+            month_interest = interest / 1200
+            num_year = Convert.ToInt32(number_of_years.Text)
+            loan_amount = Convert.ToDouble(amount_loan.Text)
 
-        monthly_pay = loan_amount * month_interest / (1 - 1 / Math.Pow(1 + month_interest, num_year * 12))
+            monthly_pay = loan_amount * month_interest / (1 - 1 / Math.Pow(1 + month_interest, num_year * 12))
 
-        imonth_pay = Convert.ToString(monthly_pay)
-        imonth_pay = "P" & Format(Val(monthly_pay), "0.00")
-        monthly_payment.Text = (imonth_pay)
+            imonth_pay = Convert.ToString(monthly_pay)
+            imonth_pay = "P" & Format(Val(monthly_pay), "0.00")
+            monthly_payment.Text = (imonth_pay)
 
-        total_pay = monthly_pay * num_year * 12
-        itotal_pay = "P" & Format(Val(total_pay), "0.00")
-        total_payment.Text = (itotal_pay)
+            total_pay = monthly_pay * num_year * 12
+            itotal_pay = "P" & Format(Val(total_pay), "0.00")
+            total_payment.Text = (itotal_pay)
 
-        amount_loan.Text = (amount_loan.Text)
+            amount_loan.Text = (amount_loan.Text)
+        End If
+
+
     End Sub
 End Class
